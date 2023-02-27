@@ -25,14 +25,16 @@ print("unix_timestamp => ",
 
 
 #call the website
+import config
 import webbrowser
-url="https://api.openweathermap.org/data/2.5/forecast?lat=38.03&lon=-78.51&appid=+"+config.api_key
+url="https://api.openweathermap.org/data/2.5/forecast?lat=38.03&lon=-78.51&appid="+str(config.api_key)
 
 
 import requests
 response = requests.get(url)
 #print(response.status_code)
-#print(response.json().keys()) 
+#print(response.json().keys())
+#print(response.json()) 
 all_data=response.json().get('list')
 #print(len(all_data))
 for i in range (0, len(all_data)):
